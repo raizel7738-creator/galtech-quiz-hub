@@ -1,0 +1,20 @@
+{
+  "name": "galtech-quiz-hub",
+  "version": "1.0.0",
+  "description": "GALTech Quiz Hub - MERN Stack Quiz Application",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": ["quiz", "education", "mern", "react", "nodejs"],
+  "author": "GALTech School of Technology",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
