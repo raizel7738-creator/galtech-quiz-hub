@@ -101,7 +101,10 @@ const exportValidation = [
 
 // Student routes
 router.post('/create', requireStudent, createHistoryValidation, createAttemptHistory);
-router.get('/', requireStudent, getHistoryValidation, getAttemptHistory);
+
+// Allow both students and admins to fetch history
+router.get('/', getHistoryValidation, getAttemptHistory);
+
 router.get('/stats', requireStudent, getUserStats);
 router.get('/analytics', requireStudent, analyticsValidation, getPerformanceAnalytics);
 router.get('/export', requireStudent, exportValidation, exportAttemptHistory);

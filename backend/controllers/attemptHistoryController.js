@@ -135,7 +135,11 @@ const getAttemptHistory = async (req, res) => {
     } = req.query;
     
     // Build query
-    const query = { user: req.user.id };
+    const query = {};
+    // Admins can see all; students see only their own
+    if (!(req.user && req.user.role === 'admin')) {
+      query.user = req.user.id;
+    }
     
     if (category) {
       query.category = category;
@@ -161,6 +165,7 @@ const getAttemptHistory = async (req, res) => {
     // Get attempt history
     const attempts = await AttemptHistory.find(query)
       .populate('category', 'name description')
+      .populate('user', 'name email')
       .sort(sort)
       .skip(skip)
       .limit(parseInt(limit));

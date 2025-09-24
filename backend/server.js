@@ -33,6 +33,8 @@ const quizSessionRoutes = require('./routes/quizSessions');
 const attemptHistoryRoutes = require('./routes/attemptHistory');
 const codingChallengeRoutes = require('./routes/codingChallenges');
 const codingSubmissionRoutes = require('./routes/codingSubmissions');
+const judge0ProxyRoutes = require('./routes/judge0');
+const challengesRoutes = require('./routes/challenges');
 const userRoutes = require('./routes/users');
 
 // Test API endpoint
@@ -62,6 +64,8 @@ app.use('/api/attempt-history', attemptHistoryRoutes);
 app.use('/api/coding-challenges', codingChallengeRoutes);
 app.use('/api/coding-submissions', codingSubmissionRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/judge0', judge0ProxyRoutes);
+app.use('/api/challenges', challengesRoutes);
 
 // Basic error handling middleware
 app.use((err, req, res, next) => {
@@ -88,3 +92,4 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+

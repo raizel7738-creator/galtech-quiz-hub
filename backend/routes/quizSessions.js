@@ -13,8 +13,12 @@ const { authenticateToken, requireStudent } = require('../middleware/auth');
 
 const router = express.Router();
 
-// All routes require authentication and student role
+// History route requires authentication but not student role (admins can also view)
+router.get('/history', authenticateToken, getQuizHistory);
+
+// All other routes require student role
 router.use(authenticateToken, requireStudent);
+
 
 // Validation rules
 const startQuizValidation = [
@@ -61,7 +65,6 @@ router.post('/:sessionId/answer', submitAnswerValidation, submitAnswer);
 router.post('/:sessionId/submit', submitQuizSession);
 router.get('/:sessionId/results', getQuizResults);
 router.post('/:sessionId/abandon', abandonQuizSession);
-router.get('/history', getQuizHistory);
 
 module.exports = router;
 
