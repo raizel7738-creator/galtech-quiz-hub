@@ -1,0 +1,9 @@
+/* Import all CSS files */
+@import './styles/global.css';
+@import './styles/Header.css';
+@import './styles/Landing.css';
+@import './styles/Dashboard.css';
+@import './styles/Categories.css';
+@import './styles/Auth.css';
+@import './styles/Quiz.css';
+@import './styles/QuizQuestion.css';
